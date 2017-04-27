@@ -9,3 +9,6 @@ And it should at least have following keys;
 access-token
 channel
 
+For Legacy Access-Tokens;
+
+https://api.slack.com/custom-integrations/legacy-tokens

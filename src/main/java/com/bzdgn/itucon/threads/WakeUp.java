@@ -28,7 +28,7 @@ public class WakeUp {
 					
 					String randomMessage = Utils.getPropertyFromConfigFile("MOTH_static_messages.properties", Integer.toString(randomNum));
 					
-					ms.sendMessage("MOTHD: " + randomMessage + "\nDate: " + new Date());
+					ms.sendMessage("MOTH: " + randomMessage + "\nDate: " + new Date());
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -36,8 +36,8 @@ public class WakeUp {
 		};
 		
 		Timer timer = new Timer();
-//		timer.schedule(task, 01, 3600*1000l); //call the run() method at 1 hour intervals
-		timer.schedule(task, 01, 1000l); //call the run() method at 1 second intervals
+		timer.schedule(task, 01, 3600*1000l); //call the run() method at 1 hour intervals
+//		timer.schedule(task, 01, 1000l); //call the run() method at 1 second intervals
 	}
 
 }

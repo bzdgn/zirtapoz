@@ -7,7 +7,6 @@ import java.util.TimerTask;
 import java.util.concurrent.ThreadLocalRandom;
 
 import com.bzdgn.itucon.comm.MessageSender;
-import com.bzdgn.itucon.utilities.StaticMessages;
 import com.bzdgn.itucon.utilities.Utils;
 
 public class WakeUp {
@@ -24,8 +23,12 @@ public class WakeUp {
 			public void run() {
 				System.out.println("sending message");
 				try {
-					int randomNum = ThreadLocalRandom.current().nextInt(0, StaticMessages.MESSAGES.length);
-					ms.sendMessage("MOTH: " + StaticMessages.MESSAGES[randomNum] + "\nDate: " + new Date());
+					int messageCount = Integer.parseInt(Utils.getPropertyFromConfigFile("MOTH_static_messages.properties", "message_count"));
+					int randomNum = ThreadLocalRandom.current().nextInt(0, messageCount);
+					
+					String randomMessage = Utils.getPropertyFromConfigFile("MOTH_static_messages.properties", Integer.toString(randomNum));
+					
+					ms.sendMessage("MOTHD: " + randomMessage + "\nDate: " + new Date());
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

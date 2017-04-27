@@ -1,0 +1,17 @@
+# Compiled class file
+*.class
+
+# Package Files
+*.jar
+
+# Binary Folder
+/bin/* 
+/bin/
+
+#project specific
+.settings/*
+.settings/
+.project
+
+#ignore main config
+src/main/resources/config.properties

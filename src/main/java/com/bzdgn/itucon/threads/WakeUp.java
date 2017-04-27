@@ -8,12 +8,12 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import com.bzdgn.itucon.comm.MessageSender;
 import com.bzdgn.itucon.utilities.StaticMessages;
+import com.bzdgn.itucon.utilities.Utils;
 
 public class WakeUp {
-
-	private static final String token = "xoxp-174817857810-175031220306-174364570112-e9bcd8d9ac5d697c99cdc2288ab061cc";
-	private static final String user = "zirtapoz";
-	private static final String channel = "C547B92TB"; // #general
+	private static final String token = Utils.getPropertyFromConfigFile("access-token");
+	private static final String user = Utils.getPropertyFromConfigFile("user");
+	private static final String channel = Utils.getPropertyFromConfigFile("channel"); // #general
 
 	public static void main(String[] args) throws InterruptedException, IOException {
 
@@ -33,7 +33,8 @@ public class WakeUp {
 		};
 		
 		Timer timer = new Timer();
-		timer.schedule(task, 01, 3600*1000l); //call the run() method at 1 second intervals
+//		timer.schedule(task, 01, 3600*1000l); //call the run() method at 1 hour intervals
+		timer.schedule(task, 01, 1000l); //call the run() method at 1 second intervals
 	}
 
 }

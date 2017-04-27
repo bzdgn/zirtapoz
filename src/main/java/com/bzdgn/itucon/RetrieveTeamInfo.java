@@ -8,6 +8,7 @@ import java.net.URL;
 
 import com.bzdgn.itucon.model.Team;
 import com.bzdgn.itucon.model.TeamInfo;
+import com.bzdgn.itucon.utilities.Utils;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,8 +16,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class RetrieveTeamInfo {
 
 	public static void main(String[] args) throws IOException {
-		String token = "xoxp-174817857810-175031220306-174364570112-e9bcd8d9ac5d697c99cdc2288ab061cc";
-		String teamId = "U54V1U3DK";
+		String token = Utils.getPropertyFromConfigFile("access-token");
+		String teamId = Utils.getPropertyFromConfigFile("team-id");
 
 		String urlParameters = String.format("token=%s&user=%s", token, teamId);
 

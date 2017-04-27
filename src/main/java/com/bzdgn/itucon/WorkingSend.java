@@ -7,10 +7,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
 
+import com.bzdgn.itucon.utilities.Utils;
+
 public class WorkingSend {
 
 	public static void main(String[] args) throws IOException {
-		String token = "xoxp-174817857810-175031220306-174364570112-e9bcd8d9ac5d697c99cdc2288ab061cc";
+		String token = Utils.getPropertyFromConfigFile("access-token");
 //		String channel = "#general";
 		String channel = "C547B92TB";
 		String as_user = "zirtapoz";

@@ -8,6 +8,7 @@ import java.net.URL;
 
 import com.bzdgn.itucon.model.User;
 import com.bzdgn.itucon.model.UserInfo;
+import com.bzdgn.itucon.utilities.Utils;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,7 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class RetrieveUserInfo {
 
 	public static void main(String[] args) throws IOException {
-		String token = "xoxp-174817857810-175031220306-174364570112-e9bcd8d9ac5d697c99cdc2288ab061cc";
+		String token = Utils.getPropertyFromConfigFile("access-token");
 		String userCode = "U54V1U3DK";
 
 		String urlParameters = String.format("token=%s&user=%s", token, userCode);
